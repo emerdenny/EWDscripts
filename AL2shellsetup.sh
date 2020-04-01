@@ -17,7 +17,8 @@ cp /home/vagrant/EWDscripts/config_files/.zshrc /home/vagrant/.zshrc
 yum -q -y install zsh
 
 # Install Oh-My-ZSH
-sudo -u vagrant sh $(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --unattended 
+# sudo -u vagrant sh $(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --unattended 
+sudo -u vagrant /home/vagrant/EWDscripts/zshinstall.sh
 
 # Install Powerlevel9k Theme
 git clone -q https://github.com/bhilburn/powerlevel9k.git /home/vagrant/.oh-my-zsh/custom/themes/powerlevel9k
