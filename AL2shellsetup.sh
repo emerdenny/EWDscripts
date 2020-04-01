@@ -6,8 +6,9 @@
 mkdir ~/setup
 cd ~/setup
 
-# Install git
-yum -q -y install git
+# Configure git 
+git config --global user.name "emerdenny"
+git config --global user.email "emerdenny@protonmail.ch"
 
 # Transfer .zshrc
 cp ~/EWDscripts/config_files/.zshrc ~/.zshrc
