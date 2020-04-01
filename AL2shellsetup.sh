@@ -3,15 +3,15 @@
 # This script sets up vagrant box bento/amazonlinux-2 for python development.
 
 # Make temporary ~/setup folder for easy cleanup
-mkdir /home/vagrant/setup
+sudo -u vagrant mkdir /home/vagrant/setup
 cd /home/vagrant/setup
 
 # Configure git 
-git config --global user.name "emerdenny"
-git config --global user.email "emerdenny@protonmail.ch"
+sudo -u vagrant git config --global user.name "emerdenny"
+sudo -u vagrant git config --global user.email "emerdenny@protonmail.ch"
 
 # Transfer .zshrc
-cp /home/vagrant/EWDscripts/config_files/.zshrc /home/vagrant/.zshrc
+sudo -u vagrant cp /home/vagrant/EWDscripts/config_files/.zshrc /home/vagrant/.zshrc
 
 # Install ZSH
 yum -q -y install zsh
@@ -21,17 +21,21 @@ yum -q -y install zsh
 sudo -u vagrant /home/vagrant/EWDscripts/zshinstall.sh --unattended
 
 # Install Powerlevel9k Theme
-git clone -q https://github.com/bhilburn/powerlevel9k.git /home/vagrant/.oh-my-zsh/custom/themes/powerlevel9k
+sudo -u vagrant git clone -q https://github.com/bhilburn/powerlevel9k.git /home/vagrant/.oh-my-zsh/custom/themes/powerlevel9k
 
 # Install Powerline Fonts
-git clone -q https://github.com/powerline/fonts.git
+sudo -u vagrant git clone -q https://github.com/powerline/fonts.git
 sudo -u vagrant /home/vagrant/setup/fonts/install.sh
 
 # Install Vundle
-git clone https://github.com/gmarik/Vundle.vim.git /home/vagrant/.vim/bundle/Vundle.vim
+sudo -u vagrant git clone https://github.com/gmarik/Vundle.vim.git /home/vagrant/.vim/bundle/Vundle.vim
+
+# Install Vim color darkburn
+sudo -u vagrant mkdir /home/vagrant/.vim/colors/
+sudo -u vagrant curl -fsSL https://raw.githubusercontent.com/flazz/vim-colorschemes/master/colors/darkburn.vim -o /home/vagrant/.vim/colors/darkburn.vim  
 
 # Transfer .vimrc
-cp /home/vagrant/EWDscripts/config_files/.vimrc /home/vagrant/.vimrc
+sudo -u vagrant cp /home/vagrant/EWDscripts/config_files/.vimrc /home/vagrant/.vimrc
 
 # Within Vim run :PluginInstall
 sudo -u vagrant vim -c ":PluginInstall" -c ":q" -c ":q"
@@ -40,7 +44,7 @@ sudo -u vagrant vim -c ":PluginInstall" -c ":q" -c ":q"
 yum -q -y install tmux
 
 # Transfer .tmux.conf
-cp /home/vagrant/EWDscripts/config_files/.vimrc /home/vagrant/.vimrc
+sudo -u vagrant cp /home/vagrant/EWDscripts/config_files/.vimrc /home/vagrant/.vimrc
 
 # Remove setup directory
 rm -rf /home/vagrant/setup
