@@ -3,7 +3,8 @@
 # This script sets up "${AL2_USER}" box bento/amazonlinux-2 for python development.
 
 # Test for sudo
-if ! [ $(id -u) = 0 ]; then
+if ! [[ $(id -u) = 0 ]]
+then
    echo "You need to be root to perform this command." >&2
    exit 1
 fi
