@@ -58,6 +58,11 @@ sudo -u "${AL2_USER}" cp /home/"${AL2_USER}"/EWDscripts/config_files/.tmux.conf 
 # Install htop 
 yum -q -y install htop 
 
+# Install nethogs
+sudo yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+sudo yum-config-manager --enable epel
+yum -q -y install nethogs
+
 # Remove setup directory
 rm -rf /home/"${AL2_USER}"/setup
 
