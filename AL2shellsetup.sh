@@ -50,7 +50,7 @@ sudo -u vagrant cp /home/vagrant/EWDscripts/config_files/.vimrc /home/vagrant/.v
 rm -rf /home/vagrant/setup
 
 # Set ZSH as default shell
-sudo -u vagrant vim passwordtest -c ":%s/"${SUDO_USER}":\/bin\/bash/"${SUDO_USER}":\/bin\/zsh/g" -c ":wq"
+vim /etc/passwd -c ":%s/"${SUDO_USER}":\/bin\/bash/"${SUDO_USER}":\/bin\/zsh/g" -c ":wq"
 
 # Run ZSH
 sudo -u vagrant zsh
