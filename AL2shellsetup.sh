@@ -54,6 +54,9 @@ rm -rf /home/"${AL2_USER}"/setup
 # Set ZSH as default shell
 vim /etc/passwd -c ":%s/"${AL2_USER}":\/bin\/bash/"${AL2_USER}":\/bin\/zsh/g" -c ":wq"
 
+# Change to home folder
+cd /home/"${AL2_USER}"
+
 # Run ZSH
 sudo -u "${AL2_USER}" zsh
 
