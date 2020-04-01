@@ -53,7 +53,7 @@ sudo -u "${AL2_USER}" vim -c ":PluginInstall" -c ":q" -c ":q"
 yum -q -y install tmux
 
 # Transfer .tmux.conf
-sudo -u "${AL2_USER}" cp /home/"${AL2_USER}"/EWDscripts/config_files/.vimrc /home/"${AL2_USER}"/.vimrc
+sudo -u "${AL2_USER}" cp /home/"${AL2_USER}"/EWDscripts/config_files/.tmux.conf /home/"${AL2_USER}"/.tmux.conf
 
 # Remove setup directory
 rm -rf /home/"${AL2_USER}"/setup
