@@ -2,6 +2,12 @@
 
 # This script sets up "${AL2_USER}" box bento/amazonlinux-2 for python development.
 
+# Test for sudo
+if ! [ $(id -u) = 0 ]; then
+   echo "The script must be run as root." >&2
+   exit 1
+fi
+
 # Get login username
 AL2_USER="${SUDO_USER}"
 
