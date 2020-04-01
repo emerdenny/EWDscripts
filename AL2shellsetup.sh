@@ -24,7 +24,7 @@ git clone -q https://github.com/bhilburn/powerlevel9k.git /home/vagrant/.oh-my-z
 
 # Install Powerline Fonts
 git clone -q https://github.com/powerline/fonts.git
-sudo -u vagrant /home/vagrant/fonts/install.sh
+sudo -u vagrant /home/vagrant/setup/fonts/install.sh
 
 # Install Vundle
 git clone https://github.com/gmarik/Vundle.vim.git /home/vagrant/.vim/bundle/Vundle.vim
@@ -45,7 +45,7 @@ cp /home/vagrant/EWDscripts/config_files/.vimrc /home/vagrant/.vimrc
 rm -rf /home/vagrant/setup
 
 # Set ZSH as default shell
-sudo -u vagrant vim passwordtest -c ":%s/"${USER}":\/bin\/bash/"${USER}":\/bin\/zsh/g" -c ":wq"
+sudo -u vagrant vim passwordtest -c ":%s/"${SUDO_USER}":\/bin\/bash/"${SUDO_USER}":\/bin\/zsh/g" -c ":wq"
 
 # Run ZSH
 sudo -u vagrant zsh
