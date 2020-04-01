@@ -34,7 +34,8 @@ git clone https://github.com/gmarik/Vundle.vim.git /home/vagrant/.vim/bundle/Vun
 cp /home/vagrant/EWDscripts/config_files/.vimrc /home/vagrant/.vimrc
 
 # Within Vim run :PluginInstall
-vim -c ":PluginInstall" -c ":q"
+su -c "vim -c ":PluginInstall" -c ":q" -c ":q"" vagrant
+exit
 
 # Install Tmux
 yum -q -y install tmux
