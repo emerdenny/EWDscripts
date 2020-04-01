@@ -55,6 +55,9 @@ yum -q -y install tmux
 # Transfer .tmux.conf
 sudo -u "${AL2_USER}" cp /home/"${AL2_USER}"/EWDscripts/config_files/.tmux.conf /home/"${AL2_USER}"/.tmux.conf
 
+# Install htop 
+yum -q -y install htop 
+
 # Remove setup directory
 rm -rf /home/"${AL2_USER}"/setup
 
