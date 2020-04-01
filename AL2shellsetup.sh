@@ -1,57 +1,60 @@
 #!/bin/bash
 
-# This script sets up vagrant box bento/amazonlinux-2 for python development.
+# This script sets up "${AL2_USER}" box bento/amazonlinux-2 for python development.
+
+# Get login username
+AL2_USER="${SUDO_USER}"
 
 # Make temporary ~/setup folder for easy cleanup
-sudo -u vagrant mkdir /home/vagrant/setup
-cd /home/vagrant/setup
+sudo -u "${AL2_USER}" mkdir /home/"${AL2_USER}"/setup
+cd /home/"${AL2_USER}"/setup
 
 # Configure git 
-sudo -u vagrant git config --global user.name "emerdenny"
-sudo -u vagrant git config --global user.email "emerdenny@protonmail.ch"
+sudo -u "${AL2_USER}" git config --global user.name "emerdenny"
+sudo -u "${AL2_USER}" git config --global user.email "emerdenny@protonmail.ch"
 
 # Transfer .zshrc
-sudo -u vagrant cp /home/vagrant/EWDscripts/config_files/.zshrc /home/vagrant/.zshrc
+sudo -u "${AL2_USER}" cp /home/"${AL2_USER}"/EWDscripts/config_files/.zshrc /home/"${AL2_USER}"/.zshrc
 
 # Install ZSH
 yum -q -y install zsh
 
 # Install Oh-My-ZSH
-sudo -u vagrant /home/vagrant/EWDscripts/omzinstall.sh --unattended
+sudo -u "${AL2_USER}" /home/"${AL2_USER}"/EWDscripts/omzinstall.sh --unattended --keep-zshrc
 
 # Install Powerlevel9k Theme
-sudo -u vagrant git clone -q https://github.com/bhilburn/powerlevel9k.git /home/vagrant/.oh-my-zsh/custom/themes/powerlevel9k
+sudo -u "${AL2_USER}" git clone -q https://github.com/bhilburn/powerlevel9k.git /home/"${AL2_USER}"/.oh-my-zsh/custom/themes/powerlevel9k
 
 # Install Powerline Fonts
-sudo -u vagrant git clone -q https://github.com/powerline/fonts.git
-sudo -u vagrant /home/vagrant/setup/fonts/install.sh
+sudo -u "${AL2_USER}" git clone -q https://github.com/powerline/fonts.git
+sudo -u "${AL2_USER}" /home/"${AL2_USER}"/setup/fonts/install.sh
 
 # Install Vundle
-sudo -u vagrant git clone https://github.com/gmarik/Vundle.vim.git /home/vagrant/.vim/bundle/Vundle.vim
+sudo -u "${AL2_USER}" git clone https://github.com/gmarik/Vundle.vim.git /home/"${AL2_USER}"/.vim/bundle/Vundle.vim
 
 # Install Vim color darkburn
-sudo -u vagrant mkdir /home/vagrant/.vim/colors/
-sudo -u vagrant curl -fsSL https://raw.githubusercontent.com/flazz/vim-colorschemes/master/colors/darkburn.vim -o /home/vagrant/.vim/colors/darkburn.vim  
+sudo -u "${AL2_USER}" mkdir /home/"${AL2_USER}"/.vim/colors/
+sudo -u "${AL2_USER}" curl -fsSL https://raw.githubusercontent.com/flazz/vim-colorschemes/master/colors/darkburn.vim -o /home/"${AL2_USER}"/.vim/colors/darkburn.vim  
 
 # Transfer .vimrc
-sudo -u vagrant cp /home/vagrant/EWDscripts/config_files/.vimrc /home/vagrant/.vimrc
+sudo -u "${AL2_USER}" cp /home/"${AL2_USER}"/EWDscripts/config_files/.vimrc /home/"${AL2_USER}"/.vimrc
 
 # Within Vim run :PluginInstall
-sudo -u vagrant vim -c ":PluginInstall" -c ":q" -c ":q"
+sudo -u "${AL2_USER}" vim -c ":PluginInstall" -c ":q" -c ":q"
 
 # Install Tmux
 yum -q -y install tmux
 
 # Transfer .tmux.conf
-sudo -u vagrant cp /home/vagrant/EWDscripts/config_files/.vimrc /home/vagrant/.vimrc
+sudo -u "${AL2_USER}" cp /home/"${AL2_USER}"/EWDscripts/config_files/.vimrc /home/"${AL2_USER}"/.vimrc
 
 # Remove setup directory
-rm -rf /home/vagrant/setup
+rm -rf /home/"${AL2_USER}"/setup
 
 # Set ZSH as default shell
-vim /etc/passwd -c ":%s/"${SUDO_USER}":\/bin\/bash/"${SUDO_USER}":\/bin\/zsh/g" -c ":wq"
+vim /etc/passwd -c ":%s/"${AL2_USER}":\/bin\/bash/"${AL2_USER}":\/bin\/zsh/g" -c ":wq"
 
 # Run ZSH
-sudo -u vagrant zsh
+sudo -u "${AL2_USER}" zsh
 
 exit 0
