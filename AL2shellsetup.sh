@@ -66,7 +66,8 @@ yum -q -y install nethogs
 # Install Conda
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 chmod 755 Miniconda3-latest-Linux-x86_64.sh 
-./Miniconda3-latest-Linux-x86_64.sh -b
+sudo -u "${AL2_USER}" ./Miniconda3-latest-Linux-x86_64.sh -b
+sudo -u "${AL2_USER}" export PATH="/home/"${AL2_USER}"/miniconda/bin:$PATH" 
 
 # Remove setup directory
 rm -rf /home/"${AL2_USER}"/setup
