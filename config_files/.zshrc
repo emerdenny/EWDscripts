@@ -115,3 +115,6 @@ source $ZSH/oh-my-zsh.sh
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(host dir vcs)
 POEWRLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
+
+export PATH="/home/vagrant/miniconda3/bin:$PATH"
+

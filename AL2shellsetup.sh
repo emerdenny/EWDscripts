@@ -63,6 +63,10 @@ sudo yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.
 sudo yum-config-manager --enable epel
 yum -q -y install nethogs
 
+# Install Conda
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+zsh Miniconda3-latest-Linux-x86_64.sh -b
+
 # Remove setup directory
 rm -rf /home/"${AL2_USER}"/setup
 
