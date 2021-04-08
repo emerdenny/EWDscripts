@@ -65,7 +65,6 @@ sudo nvm install node
 sudo npm install --global yarn
 
 # INSTALL FZF
-sudo apt-get install fzf
 
 # INSTALL RIPGREP
 cd /home/"${DEV_USER}"/setup
