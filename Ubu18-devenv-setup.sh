@@ -37,7 +37,6 @@ sudo ./configure --with-features=huge \
 				  --enable-multibyte \
 		                  --enable-rubyinterp=yes \
 				  --enable-python3interp=yes \
-				  --with-python3-config-dir=$(python3-config --configdir) \
 				  --enable-perlinterp=yes \
 				  --enable-luainterp=yes \
 				  --enable-gui=gtk2 \
@@ -59,7 +58,7 @@ rustup default nightly
 
 # INSTALL NODE
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | sudo bash
-source ~/.bashrc
+source ~/.profile
 sudo nvm install node
 
 # INSTALL YARN
