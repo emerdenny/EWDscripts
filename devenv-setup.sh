@@ -77,6 +77,9 @@ vim -c ":PlugInstall" -c ":q" -c ":q"
 # CocInstall Extensions
 vim -c 'CocInstall -sync coc-css coc-eslint coc-fzf-preview coc-git coc-html coc-htmlhint coc-html-css-support coc-json coc-prettier coc-pyright coc-rust-analyzer coc-tsserver coc-yaml|q'
 
+# Add Coc/Ale integration settings
+cp "${SCRIPT_PATH}"/config_files/coc-settings.json /home/"${USER}"/.vim/
+
 # Change to home folder
 cd /home/"${USER}"
 
