@@ -1,0 +1,18 @@
+{
+	"configurations": {
+		"hello_world: Launch": {
+			"adapter": "debugpy",
+			"configuration": {
+				"name": "hello_world: Launch",
+				"type": "python",
+				"request": "launch",
+				"cwd": "${workspaceRoot}",
+				"python": "/usr/bin/python3",
+				"stopOnEntry": true,
+				"console": "externalTerminal",
+				"debugOptions": [],
+				"program": "${workspaceRoot}/hello_world.py"
+			}
+		}
+	}
+}
