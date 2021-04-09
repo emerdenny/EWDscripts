@@ -19,7 +19,7 @@ git config --global user.email "emerdenny@protonmail.ch"
 sudo apt update && sudo apt-get update
 sudo apt install -y libncurses5-dev libgtk2.0-dev libatk1.0-dev \
 	libcairo2-dev libx11-dev libxpm-dev libxt-dev \
-	python3-dev ruby-dev lua5.2 liblua5.2-dev libperl-dev git
+	python3-dev python3-pip ruby-dev lua5.2 liblua5.2-dev libperl-dev git
 sudo apt remove -y vim vim-runtime gvim
 git clone https://github.com/vim/vim.git
 cd ./vim
@@ -61,6 +61,9 @@ cd /home/"${USER}"/setup
 curl -LO https://github.com/BurntSushi/ripgrep/releases/download/12.1.1/ripgrep_12.1.1_amd64.deb
 sudo dpkg -i ripgrep_12.1.1_amd64.deb
 
+# Dependency for vimspector python adapter
+pip3 install setuptools
+
 # Install Vim-Plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 	    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -78,6 +81,8 @@ vim -c 'CocInstall -sync coc-css coc-eslint coc-fzf-preview coc-git coc-html coc
 cd /home/"${USER}"
 
 # Remove setup directory
-rm -rf /home/"${USER}"/setup
+sudo rm -rf /home/"${USER}"/setup
+
+source ~/.bashrc
 
 exit 0
