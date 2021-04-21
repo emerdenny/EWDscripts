@@ -29,7 +29,7 @@ highlight SignColumn ctermfg=black ctermbg=black
 highlight Search ctermbg=242
 
 " map leader to Space
-let mapleader = " " 
+let mapleader = " "
 
 let g:ale_disable_lsp = 1
 call plug#begin('~/.vim/plugged')
@@ -56,6 +56,8 @@ Plug 'mxw/vim-jsx'
 
 call plug#end()
 
+"TODO ALE GITHUB FAQ CHECK JSX FILES WITH BOTH STYLELINT AND ESLINT
+
 "#### begin 'dense-analysis/ale' configs
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
@@ -63,6 +65,7 @@ let g:ale_fixers = {
 \   'javascriptreact': ['prettier','eslint'],
 \   'css': ['prettier'],
 \   'html': ['prettier'],
+\   'rust': ['rustfmt'],
 \}
 let g:ale_fix_on_save = 1
 let g:airline#extensions#ale#enabled = 1
