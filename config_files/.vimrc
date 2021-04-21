@@ -51,6 +51,9 @@ Plug 'vim-airline/vim-airline'
 
 Plug 'vim-airline/vim-airline-themes'
 
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+
 call plug#end()
 
 "#### begin 'dense-analysis/ale' configs
@@ -220,6 +223,8 @@ nmap <leader><C-p> :Rg<CR>
 nmap <leader><tab> <plug>(fzf-maps-n)
 xmap <leader><tab> <plug>(fzf-maps-x)
 omap <leader><tab> <plug>(fzf-maps-o)
+
+command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
 ""#### end 'junegunn/fzf' configs
 
 "#### begin 'jeffkreeftmeijer/vim-numbertoggle' configs
