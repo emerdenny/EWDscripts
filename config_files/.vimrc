@@ -1,5 +1,6 @@
 set nocompatible
-
+set ttymouse=xterm2
+set mouse=a
 set t_Co=256
 
 " Sets how close cursor can get to top or bottom of screen
