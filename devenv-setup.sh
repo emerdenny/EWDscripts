@@ -15,6 +15,10 @@ cd /home/"${USER}"/setup
 git config --global user.name "emerdenny"
 git config --global user.email "emerdenny@protonmail.ch"
 
+# Install tmux config
+git clone https://github.com/samoshkin/tmux-config.github
+./tmux-config/install.sh
+
 # BUILD VIM FROM SOURCE
 sudo apt update && sudo apt-get update
 sudo apt install -y libncurses5-dev libgtk2.0-dev libatk1.0-dev \
